@@ -8,5 +8,5 @@ import (
 
 func Run(config _struct.ServerConfig) {
 	/* TODO: replace nil by real handler */
-	http.ListenAndServe(config.Addr+strconv.FormatInt(config.Port, 10), config.Handler)
+	http.ListenAndServe(config.Addr+":"+strconv.FormatInt(config.Port, 10), config.Handler)
 }
