@@ -7,7 +7,7 @@ import (
 
 func main() {
 	printHeader()
-	core.Start("", 8080, core.HttpHandler{})
+	core.Start("", 8888, core.HttpHandler{})
 	return;
 }
 
