@@ -3,11 +3,22 @@ package main
 import (
 	"fmt"
 	"go-http/src/core"
+	"os"
+	"strconv"
 )
 
 func main() {
 	printHeader()
-	core.Start("", 8888, core.HttpHandler{})
+	args := os.Args
+	var port uint64
+
+	if(len(args) > 1) {
+		port, _ = strconv.ParseUint(args[1], 10, 64)
+	} else {
+		port = 443
+	}
+
+	core.Start("", port)
 	return;
 }
 

@@ -2,19 +2,16 @@ package core
 
 import (
 	_struct "go-http/src/struct"
-	"net/http"
 )
 
-func Start(addr string, port int64, handler http.Handler) {
-	//mux := buildMux()
-	//registerRouteHandlers(mux);
+func Start(addr string, port uint64) {
 	Run(_struct.ServerConfig{
 		Addr:    addr,
 		Port:    port,
-		Handler: handler,
+		Handler: HttpHandler{},
 	})
 }
-
+/*
 func buildMux() (newMux *http.ServeMux) {
 	mux := http.NewServeMux()
 	return mux
@@ -23,3 +20,4 @@ func buildMux() (newMux *http.ServeMux) {
 func registerRouteHandlers(mux *http.ServeMux) {
 	//mux.HandleFunc("/", HandleServer)
 }
+*/

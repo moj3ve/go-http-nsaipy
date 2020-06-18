@@ -4,6 +4,6 @@ import "net/http"
 
 type ServerConfig struct {
 	Addr    string
-	Port    int64
+	Port    uint64
 	Handler http.Handler
 }

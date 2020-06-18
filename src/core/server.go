@@ -9,6 +9,6 @@ import (
 
 func Run(config _struct.ServerConfig) {
 	/* TODO: replace nil by real handler */
-	err := http.ListenAndServeTLS(config.Addr+":"+strconv.FormatInt(config.Port, 10), "server.crt", "server.key", config.Handler)
+	err := http.ListenAndServeTLS(config.Addr+":"+strconv.FormatInt(int64(config.Port), 10), "server.crt", "server.key", config.Handler)
 	_util.HandlePanic(err)
 }
