@@ -11,6 +11,7 @@ func Start(addr string, port uint64) {
 		Handler: HttpHandler{},
 	})
 }
+
 /*
 func buildMux() (newMux *http.ServeMux) {
 	mux := http.NewServeMux()

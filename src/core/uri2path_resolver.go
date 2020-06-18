@@ -1,7 +1,6 @@
 package core
 
 import (
-	"fmt"
 	_util "go-http/src/utils"
 	"io/ioutil"
 	"os"
@@ -9,7 +8,7 @@ import (
 )
 
 func ResolveToJson(uri string) (raw []byte) {
-	fmt.Println("[*] $ (DEBUG) Executable located at: " + getExecutableFilepath())
+	//fmt.Println("[*] $ (DEBUG) Executable located at: " + getExecutableFilepath())
 	content, err := ioutil.ReadFile(getExecutableFilepath() + "/contents" + uri + ".json")
 	_util.HandlePanic(err)
 	return []byte(content)

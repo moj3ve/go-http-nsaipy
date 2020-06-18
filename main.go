@@ -9,17 +9,18 @@ import (
 
 func main() {
 	printHeader()
+
 	args := os.Args
 	var port uint64
 
-	if(len(args) > 1) {
+	if len(args) > 1 {
 		port, _ = strconv.ParseUint(args[1], 10, 64)
 	} else {
 		port = 443
 	}
 
 	core.Start("", port)
-	return;
+	return
 }
 
 func printHeader() {
