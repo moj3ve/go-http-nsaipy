@@ -7,10 +7,8 @@ import (
 )
 
 func Start(addr string, port int64, handler http.Handler) {
-
 	//mux := buildMux()
 	//registerRouteHandlers(mux);
-
 	Run(_struct.ServerConfig{
 		Addr:    addr,
 		Port:    port,
@@ -32,8 +30,6 @@ func registerRouteHandlers(mux *http.ServeMux) {
 		fmt.Println("[*] $ User Agent: " + request.Header.Get("User-Agent"))
 		fmt.Println()
 		data := []byte("<h1>go-http-nsaipy!</h1><p>It works!</p><a target=\"_blank\" href=\"https://github.com/woodfairy\">GitHub</a> - <a target=\"_blank\" href=\"https://danschmit.dev\">Web / Matrix</a>")
-
-
 
 		writer.Write(data)
 	})
