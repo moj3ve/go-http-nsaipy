@@ -13,7 +13,7 @@ func main() {
 
 func printHeader() {
 	fmt.Println("[*] go-http-nsaipy")
-	fmt.Println("[*] http utility written in golang by woodfairy - not sure about its purpose yet")
+	fmt.Println("[*] http utility written in golang - not sure about its purpose yet")
 	fmt.Println("[*] (yes the name is crap but I will care later)")
 	fmt.Println("[*] Web:    https://danschmit.dev")
 	fmt.Println("[*] GitHub: https://github.com/woodfairy")
