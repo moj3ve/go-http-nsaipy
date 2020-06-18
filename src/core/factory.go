@@ -6,9 +6,11 @@ import (
 
 func Start(addr string, port uint64) {
 	Run(_struct.ServerConfig{
-		Addr:    addr,
-		Port:    port,
-		Handler: HttpHandler{},
+		Addr:     addr,
+		Port:     port,
+		Handler:  HttpHandler{},
+		CertFile: "cert/server.crt",
+		KeyFile:  "cert/server.key",
 	})
 }
 

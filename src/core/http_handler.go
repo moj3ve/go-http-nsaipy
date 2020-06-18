@@ -10,7 +10,7 @@ type HttpHandler struct{}
 func (h HttpHandler) ServeHTTP(writer http.ResponseWriter, request *http.Request) {
 	processRequest(writer, request)
 	writer.Write(buildResponse(request))
-	fmt.Println("-----------------------------------------")
+	fmt.Println("-----------------------------------------------------------")
 	return
 }
 
@@ -32,7 +32,6 @@ func printRequestInfo(request *http.Request) {
 	fmt.Println("[*] $ Content-Type: " + request.Header.Get("Content-Type"))
 	rawBody, isJson := parseBody(request.Body)
 	if isJson {
-		//TODO: parse JSON
 		fmt.Println("[*] $ JSON Body type recognized")
 		fmt.Println("[*] $ Request Body: " + string(rawBody))
 	} else {
