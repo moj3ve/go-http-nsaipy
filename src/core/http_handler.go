@@ -22,17 +22,18 @@ func (h HttpHandler) ServeHTTP(writer http.ResponseWriter, request *http.Request
 	writer.WriteHeader(http.StatusOK)
 
 	rawBody, isJson := parseBody(request.Body)
-	if(isJson) {
+
+	if isJson {
 		//TODO: parse JSON
 		fmt.Println("[*] $ JSON Body type recognized")
-		fmt.Println("[*] $ content: " + string(rawBody))
-
+		fmt.Println("[*] $ Request Body: " + string(rawBody))
 	} else {
 		fmt.Println("[*] $ No JSON type detected. Interpreting as string.")
-		fmt.Println("[*] $ String parsed: " + string(rawBody))
+		fmt.Println("[*] $ Request Body: " + string(rawBody))
 	}
 
+	rawResponseBody := ResolveToJson(request.RequestURI)
 	fmt.Println()
-	writer.Write(rawBody)
+	writer.Write(rawResponseBody)
 	return
 }
