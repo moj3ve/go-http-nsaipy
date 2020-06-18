@@ -11,13 +11,13 @@ import (
 func ResolveToJson(uri string) (raw []byte) {
 	fmt.Println("[*] $ (DEBUG) Executable located at: " + getExecutableFilepath())
 	content, err := ioutil.ReadFile(getExecutableFilepath() + "/contents" + uri + ".json")
-	_util.HandleError(err)
+	_util.HandlePanic(err)
 	return []byte(content)
 }
 
 func getExecutableFilepath() (path string) {
 	ex, err := os.Executable()
-	_util.HandleError(err)
+	_util.HandlePanic(err)
 	exPath := filepath.Dir(ex)
 	return exPath
 }

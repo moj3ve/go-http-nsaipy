@@ -9,7 +9,7 @@ import (
 
 func parseBody(body io.ReadCloser) (rawBody []byte, isJson bool) {
 	raw, err := ioutil.ReadAll(body)
-	_util.HandleError(err)
+	_util.HandlePanic(err)
 	return raw, isJSON(string(raw))
 }
 
