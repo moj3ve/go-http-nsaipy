@@ -14,8 +14,8 @@ func main() {
 func printHeader() {
 	fmt.Println("[*] H-olla")
 	fmt.Println("[*] T-he Woodfairy")
-	fmt.Println("[*] T-ransport")
-	fmt.Println("[*] P-rogram")
+	fmt.Println("[*] T-esting")
+	fmt.Println("[*] P-latform")
 	fmt.Println("[*] http utility written in golang by woodfairy")
 	fmt.Println("[*] (yes the name is crap but I will care later)")
 	fmt.Println("[*] Web:    https://danschmit.dev")
