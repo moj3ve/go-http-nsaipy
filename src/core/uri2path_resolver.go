@@ -7,9 +7,9 @@ import (
 	"path/filepath"
 )
 
-func ResolveToJson(uri string) (raw []byte) {
+func Resolve(uri string) (raw []byte) {
 	//fmt.Println("[*] $ (DEBUG) Executable located at: " + getExecutableFilepath())
-	content, err := ioutil.ReadFile(getExecutableFilepath() + "/hosts" + uri + ".json")
+	content, err := ioutil.ReadFile(getExecutableFilepath() + "/hosts" + uri)
 	_util.HandlePanic(err)
 	return content
 }

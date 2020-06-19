@@ -10,7 +10,7 @@ import (
 
 
 func Run(config _struct.ServerConfig) {
-	fmt.Printf("[*] Server listening at port %d", config.Port)
+	fmt.Printf("[*] Server listening at port %d \n", config.Port)
 	err := http.ListenAndServeTLS(
 		config.Addr+":"+strconv.FormatInt(int64(config.Port), 10),
 		config.CertFile,

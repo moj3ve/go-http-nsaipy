@@ -20,7 +20,10 @@ func processRequest(writer http.ResponseWriter, request *http.Request) {
 }
 
 func buildResponse(request *http.Request) (raw []byte) {
-	return ResolveToJson("/" + request.Host + request.RequestURI)
+	if request.RequestURI == "/" {
+		request.RequestURI = "/index"
+	}
+	return Resolve("/" + request.Host + request.RequestURI + ".json")
 }
 
 func printRequestInfo(request *http.Request) {
@@ -33,10 +36,10 @@ func printRequestInfo(request *http.Request) {
 	rawBody, isJson := parseBody(request.Body)
 	if isJson {
 		fmt.Println("[*] $ JSON Body type recognized")
-		fmt.Println("[*] $ Request Body: " + string(rawBody))
+		fmt.Println("[*] $ Request Body: \n" + string(rawBody))
 	} else {
 		fmt.Println("[*] $ No JSON type detected. Interpreting as string.")
-		fmt.Println("[*] $ Request Body: " + string(rawBody))
+		fmt.Println("[*] $ Request Body: \n" + string(rawBody))
 	}
 }
 
