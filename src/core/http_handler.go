@@ -20,13 +20,13 @@ func processRequest(writer http.ResponseWriter, request *http.Request) {
 }
 
 func buildResponse(request *http.Request) (raw []byte) {
-	return ResolveToJson(request.RequestURI)
+	return ResolveToJson("/" + request.Host + request.RequestURI)
 }
 
 func printRequestInfo(request *http.Request) {
 	fmt.Println("[*] $ Incoming " + request.Method + " Request")
-	//fmt.Println("[*] $ Host: " + request.Host)
-	//fmt.Println("[*] $ Remote Addr: " + request.RemoteAddr)
+	fmt.Println("[*] $ Host: " + request.Host)
+	fmt.Println("[*] $ Remote Addr: " + request.RemoteAddr)
 	fmt.Println("[*] $ Request URI: " + request.RequestURI)
 	fmt.Println("[*] $ User-Agent: " + request.Header.Get("User-Agent"))
 	fmt.Println("[*] $ Content-Type: " + request.Header.Get("Content-Type"))

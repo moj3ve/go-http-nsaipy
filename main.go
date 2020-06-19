@@ -1,25 +1,16 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"go-http/src/core"
-	"os"
-	"strconv"
 )
 
 func main() {
 	printHeader()
-
-	args := os.Args
-	var port uint64
-
-	if len(args) > 1 {
-		port, _ = strconv.ParseUint(args[1], 10, 64)
-	} else {
-		port = 443
-	}
-
-	core.Start("", port)
+	port := flag.Uint64("p", 443, "port")
+	flag.Parse()
+	core.Start("", *port)
 	return
 }
 

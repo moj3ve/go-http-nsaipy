@@ -9,9 +9,9 @@ import (
 
 func ResolveToJson(uri string) (raw []byte) {
 	//fmt.Println("[*] $ (DEBUG) Executable located at: " + getExecutableFilepath())
-	content, err := ioutil.ReadFile(getExecutableFilepath() + "/contents" + uri + ".json")
+	content, err := ioutil.ReadFile(getExecutableFilepath() + "/hosts" + uri + ".json")
 	_util.HandlePanic(err)
-	return []byte(content)
+	return content
 }
 
 func getExecutableFilepath() (path string) {
