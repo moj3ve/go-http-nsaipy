@@ -10,7 +10,12 @@ import (
 func Resolve(uri string) (raw []byte) {
 	//fmt.Println("[*] $ (DEBUG) Executable located at: " + getExecutableFilepath())
 	content, err := ioutil.ReadFile(getExecutableFilepath() + "/hosts" + uri)
-	_util.HandlePanic(err)
+	hasError := _util.HandlePanic(err)
+	if(hasError) {
+		fallback, fallbackErr := ioutil.ReadFile(getExecutableFilepath() + "/hosts/fallback.json")
+		_util.HandlePanic(fallbackErr)
+		return fallback
+	}
 	return content
 }
 
